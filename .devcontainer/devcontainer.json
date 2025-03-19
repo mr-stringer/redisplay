@@ -1,0 +1,24 @@
+{
+    "name": "redisplay",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "containerUser": "engineer",
+    "remoteUser": "engineer",
+    "runArgs": [
+        "--name=goplay",
+        "--init"
+    ],
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false,
+    "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "streetsidesoftware.code-spell-checker",
+                "golang.go",
+                "dnut.rewrap-revived",
+                "echoapi.echoapi-for-vscode"
+            ]
+        }
+    }
+}

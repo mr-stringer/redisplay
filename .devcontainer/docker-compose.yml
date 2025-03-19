@@ -1,0 +1,16 @@
+
+services:
+  app:
+    build: 
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"  
+    network_mode: service:redis
+    
+  
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+
+    # As in the "app" service, use "forwardPorts" in **devcontainer.json** to forward an app port locally.
